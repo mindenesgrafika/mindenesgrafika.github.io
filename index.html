@@ -121,8 +121,6 @@
 
 		function resized() 
 		{
-			console.log("resized");
-
 			if ( window.innerWidth == width && window.innerHeight > height - 32 && window.innerHeight < height + 32 ) return;
 
 			width = window.innerWidth;
@@ -165,12 +163,6 @@
 		window.addEventListener("resize", resized);
 
 		resized();
-
-		window.addEventListener("scroll", function()
-		{
-			console.log("scroll");
-		});
-
 
 	</script>
 </body>
