@@ -16,19 +16,21 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 
 	<style>
+
 		* {
 			margin: 0;
 			padding: 0;
 			box-sizing: border-box;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 150%;
 		}
 
 		body {
 			font-family: 'Syncopate', sans-serif;
 			background-color: black;
 			color: white;
-			font-size: 1rem;
-			font-weight: 400;
-			line-height: 230%;
+			text-align: center;
 		}
 
 		video {
@@ -40,8 +42,9 @@
 
 		main {
 			display: block;
-			text-align: center;
-			padding-top: 2rem;
+			padding-top: 2em;
+			padding-left: 1em;
+			padding-right: 1em;
 		}
 
 		a {
@@ -50,87 +53,108 @@
 		}
 
 		.button {
-			padding: 10px;
-			padding-top: 15px;
 			border: 1px white solid;
+			border-radius: 0.5em;
 			background-color: rgba(255, 255, 255, 0.145);
 		}
 
-		.mobile {
-			margin-top: 2rem;
-			margin-bottom: 2rem;
-			font-size: 2.5rem;
-			font-weight: 700;
+		.button a {
+			display: block;
+			padding: 1rem;
+			padding-top: 1.2rem;
 		}
 
-		h1, h2 {
-			font-size: 1rem;
-			font-weight: 700;
-			padding-left: 10rem;
-			padding-right: 10rem;
+		h1, h2, p {
+			margin-bottom: 2em;
 		}
 
 		h1 {
-			font-size: 1.5rem;
-			margin-bottom: 1rem;
+			font-weight: 700;
 		}
 
-		h2 {
-			font-weight: 200;
-		}
+		/* responsive */
 
-		main p:first-of-type {
-			margin-top: 2rem;
-			margin-bottom: 2rem;
-			font-size: 1.5rem;
-		}
+		@media (min-width: 568px) {
 
-		main p:last-of-type {
-			margin-bottom: 2rem;
-		}
-
-		.small {
-			display: none;
-		}
-
-		@media screen and (max-width: 800px) {
-
-			.small {
-				display: unset;
-			}
-
-			.big {
+			br {
 				display: none;
 			}
-
 		}
 
-		
+		@media (min-width: 768px) {
+
+			* {
+				font-size: 32px;
+			}
+		}
+
 	</style>
 
 </head>
 
 <body>
 
-	<video autoplay muted>
-		<source src="movie.mp4" type="video/mp4" />
+	<noscript>
+		<video autoplay muted controls style="height: unset; object-fit: unset;" poster="black.png">
+			<source src="movie-graffiti-landscape.mp4" type="video/mp4" />
+		</video>
+	</noscript>
+
+	<video autoplay muted style="display: none;" poster="black.png">
+		<source src="" type="video/mp4" />
 	</video>
 
 	<main>
 		<h1>Grafikai tervezés, Mozgóképek, Videó- és filmgrafika, Webdesign, 3D, Animáció, Játékok, Szoftvermérnök</h1>
 		<h2>(Graphic design, motion graphics, video graphics, web, 3D, animation, games, software engineering)</h2>
-		<p><a class="button big" href="mailto:mindenesgrafika@proton.me" title="Kapcsolat / Contact">Üdvözlöm! BeszéLj hozzám / Hello! Talk to me</a></p>
-
-		<div class="small">
-			<p><a class="button" href="mailto:mindenesgrafika@proton.me" title="Kapcsolat">Üdvözlöm! BeszéLj hozzám</a></p>
-			<p><a class="button" href="mailto:mindenesgrafika@proton.me" title="Contact">Hello! Talk to me</a></p>
-		</div>
-
-		<p>Egy kicsit mindenb<span style="font-size: 90%;">Ő</span>l (A little bit of everything)</p>
-		<p class="mobile"><a class="button" href="tel:+36304275524" title="Kapcsolat / Contact">+36 30 427 5524</a></p>
-		<p><a href="https://www.google.com/maps/place/Mindenes+Grafika/@47.4920251,19.0684242,19.74z/data=!4m6!3m5!1s0x4741dd449c105b5d:0xe1b61a3c4e66e8ec!8m2!3d47.492037!4d19.0684683!16s%2Fg%2F11k9hg9zgj">Budapest, Horánszky u. 10, 1085</a></p>
+		<p class="button"><a href="mailto:mindenesgrafika@proton.me" title="Üdvözlöm! BeszéLj hozzám">mindenesgrafika<br>@proton.me</a></p>
+		<p class="button"><a href="tel:+36304275524" title="Kapcsolat / Contact">+36 30 427 5524</a></p>
+		<p><a href="https://www.google.com/maps/place/Mindenes+Grafika/@47.4920251,19.0684242,19.74z/data=!4m6!3m5!1s0x4741dd449c105b5d:0xe1b61a3c4e66e8ec!8m2!3d47.492037!4d19.0684683!16s%2Fg%2F11k9hg9zgj">Horánszky u. 10, 1085</a></p>
 	</main>
 
+	<script>
+
+		function resized()
+		{
+			let video = document.getElementsByTagName('video');
+			let source = document.getElementsByTagName('source');
+
+			if(window.innerWidth < window.innerHeight)
+			{
+				source[0].src = "movie-graffiti-portrait.mp4";
+			}
+			else
+			{
+				source[0].src = "movie-graffiti-landscape.mp4";
+			}
+			
+			if(window.innerHeight / window.innerWidth > 2)
+			{
+				source[0].src = "movie-graffiti-portrait.mp4";
+
+				video[0].style.height = "unset";
+
+				video[0].style.objectFit = "unset";
+			}
+			else
+			{
+				video[0].style.height = "100vh";
+
+				video[0].style.objectFit = "cover";
+			}
+
+			video[0].load();
+		}
+
+		let video = document.getElementsByTagName('video');
+
+		video[0].style.display = "block";
+
+		window.addEventListener("resize", resized);
+
+		resized();
+
+	</script>
 </body>
 
 </html>
