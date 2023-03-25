@@ -8,15 +8,16 @@
 
 	<title>Grafikai tervezés, Mozgóképek, Videó- és filmgrafika, Webdesign, 3D, Animáció, Játékok, Szoftvermérnök - Mindenes Grafika</title>
 
-	<meta name="description" content="Grafikai tervezés, weboldalkészítés, 3D animáció és játékkészítés a VIII kerületben. Graphic design, web site creation, 3D animation and game creation in the 8th district" />
-	<meta name="keywords" content="Web Site Design, Web Design, Web Site Development, Graphic Design, 3D Design, Animation, Games, Motion Graphics"/>
+	<meta name="description"
+		content="Grafikai tervezés, weboldalkészítés, 3D animáció és játékkészítés a VIII kerületben. Graphic design, web site creation, 3D animation and game creation in the 8th district" />
+	<meta name="keywords"
+		content="Web Site Design, Web Design, Web Site Development, Graphic Design, 3D Design, Animation, Games, Motion Graphics" />
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 
 	<style>
-
 		* {
 			margin: 0;
 			padding: 0;
@@ -64,7 +65,9 @@
 			padding-top: 1.2rem;
 		}
 
-		h1, h2, p {
+		h1,
+		h2,
+		p {
 			margin-bottom: 2em;
 		}
 
@@ -87,7 +90,6 @@
 				font-size: 32px;
 			}
 		}
-
 	</style>
 
 </head>
@@ -114,23 +116,29 @@
 
 	<script>
 
-		function resized()
+		var width = window.innerWidth;
+		var height = window.innerHeight;
+
+		function resized() 
 		{
-			console.log("resized");
+			if (width == window.innerWidth && height == window.innerHeight) return;
+
+			width = window.innerWidth;
+			height = window.innerHeight;
 
 			let video = document.getElementsByTagName('video');
 			let source = document.getElementsByTagName('source');
 
-			if(window.innerWidth < window.innerHeight)
+			if (width < height) 
 			{
 				source[0].src = "movie-graffiti-portrait.mp4";
 			}
-			else
+			else 
 			{
 				source[0].src = "movie-graffiti-landscape.mp4";
 			}
-			
-			if(window.innerHeight / window.innerWidth > 2)
+
+			if (height / width > 2) 
 			{
 				source[0].src = "movie-graffiti-portrait.mp4";
 
@@ -138,7 +146,7 @@
 
 				video[0].style.objectFit = "unset";
 			}
-			else
+			else 
 			{
 				video[0].style.height = "100vh";
 
