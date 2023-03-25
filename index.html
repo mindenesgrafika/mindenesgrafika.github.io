@@ -109,7 +109,7 @@
 	<main>
 		<h1>Grafikai tervezés, Mozgóképek, Videó- és filmgrafika, Webdesign, 3D, Animáció, Játékok, Szoftvermérnök</h1>
 		<h2>(Graphic design, motion graphics, video graphics, web, 3D, animation, games, software engineering)</h2>
-		<p class="button"><a href="mailto:mindenesgrafika@proton.me" title="Üdvözlöm! BeszéLj hozzám">mindenesgrafika<br>@proton.me</a></p>
+		<p class="button"><a href="mailto:mindenesgrafika@proton.me" title="Üdvözlöm! Beszélj hozzám">mindenesgrafika<br>@proton.me</a></p>
 		<p class="button"><a href="tel:+36304275524" title="Kapcsolat / Contact">+36 30 427 5524</a></p>
 		<p><a href="https://www.google.com/maps/place/Mindenes+Grafika/@47.4920251,19.0684242,19.74z/data=!4m6!3m5!1s0x4741dd449c105b5d:0xe1b61a3c4e66e8ec!8m2!3d47.492037!4d19.0684683!16s%2Fg%2F11k9hg9zgj">Horánszky u. 10, 1085</a></p>
 	</main>
@@ -121,7 +121,7 @@
 
 		function resized() 
 		{
-			// console.log(window.innerWidth + " " + window.innerHeight);
+			console.log("resized");
 
 			if ( window.innerWidth == width && window.innerHeight > height - 32 && window.innerHeight < height + 32 ) return;
 
@@ -165,6 +165,12 @@
 		window.addEventListener("resize", resized);
 
 		resized();
+
+		window.addEventListener("scroll", function()
+		{
+			console.log("scroll");
+		});
+
 
 	</script>
 </body>
