@@ -116,12 +116,14 @@
 
 	<script>
 
-		var width = 0;
-		var height = 0;
+		let width = 0;
+		let height = 0;
 
 		function resized() 
 		{
 			if (width == window.innerWidth && height == window.innerHeight) return;
+
+			console.log("resized");
 
 			width = window.innerWidth;
 			height = window.innerHeight;
